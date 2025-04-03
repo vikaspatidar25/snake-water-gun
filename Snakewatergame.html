@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Water Gun</title>
+  </head>
+  <body>
     <script>
-        // Snake Gun Water Game 
-        let player = prompt("Enter between s, w and g :")
-        let comp = Math.floor(Math.random() * 3);
-        let system = ["s", "w", "g"][comp]
-
-{
-  if(system==player){
-    alert("draw, try again")
-    console.log("both chose the same, so nobody is winner, try again")
-  }
-  else if(system == "s" && player=="w"){
-    alert("Computer won the game !")
-    console.log("Computer won the game !")
-  }
-  else if(system == "s" && player=="g"){
-    alert("congrats , you won the game .")
-    console.log("congrats , you won the game .")
-  }
-  else if(system == "g" && player=="w"){
-    alert("congrats , you won the game .")
-    console.log("congrats , you won the game .")
-  }
-  else if(system == "g" && player=="s"){
-    alert("Computer won the game !")
-    console.log("Computer won the game !")
-  }
-  else if(system == "w" && player=="s"){
-    alert("congrats , you won the game .")
-    console.log("congrats , you won the game .")
-  }
-  else if(system == "w" && player=="g"){
-    alert("Computer won the game !")
-    console.log("Computer won the game !")
-  }
-  else{
-    alert("please enter between s ,v and g")
-  }
-}
- 
-
+      let user,
+        rand,
+        cpu,
+        ccount = 0,
+        ucount = 0;
+      let a = 1;
+      while (a < 6 ){
+        let myarray = ["S", "W", "G"];
+        user = prompt("Enter the S,W,G (5 Times)").toUpperCase();
+        rand = Math.floor(Math.random() * 3);
+        cpu = myarray[rand];
+        console.log(cpu);
+        a++;
+        if (cpu == user) {
+          console.log("Draw");
+        } else if (cpu == "G" && user == "S") {
+          console.log("Computer is won");
+          ccount++;
+        } else if (cpu == "W" && user == "G") {
+          console.log("Computer is won");
+          ccount++;
+        } else if (cpu == "S" && user == "W") {
+          console.log("Computer is won");
+          ccount++;
+        } else if (user == "G" && cpu == "S") {
+          console.log("User is won");
+          ucount++;
+        } else if (user == "W" && cpu == "G") {
+          console.log("user is won");
+          ucount++;
+        } else if (user == "S" && cpu == "W") {
+          console.log("User is won");
+          ucount++;
+        }
+      }
+      if ((ccount==ucount)) {
+        alert("Game is Draw");
+        document.write("Game is Draw")
+      } else if (ccount > ucount) {
+        alert(`Computer is Winner Score ${ccount}`);
+        document.write(`Computer is Winner Score ${ccount}`);
+      } else if (ucount > ccount) {
+        alert(`User is Winner Score ${ucount}`);
+        document.write(`User is Winner Score ${ucount}`)
+      }
     </script>
-</body>
+  </body>
 </html>
